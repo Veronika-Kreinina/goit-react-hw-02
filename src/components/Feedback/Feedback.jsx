@@ -1,19 +1,15 @@
-// import s from "./Feedback.module.css";
-
-const Feedback = ({ voteData }) => {
+const Feedback = ({ feedback, totalFeedback, positiveFeedback }) => {
   return (
     <div>
       <ul>
-        <li>Good:{voteData.good}</li>
-        <li>Neutral:{voteData.neutral}</li>
-        <li>Bad:{voteData.bad}</li>
+        <li>Good:{feedback.good}</li>
+        <li>Neutral:{feedback.neutral}</li>
+        <li>Bad:{feedback.bad}</li>
+        <li>Total: {totalFeedback}</li>
+        <li>Positive Feedback: {positiveFeedback}%</li>
       </ul>
     </div>
   );
-};
-
-const updateFeedback = (feedbackType) => {
-  // Тут використовуй сеттер, щоб оновити стан
 };
 
 export default Feedback;

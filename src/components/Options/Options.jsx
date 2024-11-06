@@ -1,19 +1,28 @@
-// import s from "./Options.module.css";
+import s from "./Options.module.css";
 
-const Options = ({ voteData, setVoteData }) => {
-  const handleOnClick = (value) => {
-    console.log(value);
-
-    setVoteData((prev) => ({ ...prev, [value]: prev[value] + 1 }));
-  };
+const Options = ({
+  feedback,
+  updateFeedback,
+  resetFeedback,
+  totalFeedback,
+}) => {
   return (
     <div>
-      {Object.keys(voteData).map((option) => (
-        <button key={option} onClick={() => handleOnClick(option)}>
+      {Object.keys(feedback).map((option) => (
+        <button
+          className={s.btn}
+          key={option}
+          onClick={() => updateFeedback(option)}
+        >
           {option}
         </button>
       ))}
-      <button>reset</button>
+
+      {totalFeedback > 0 && (
+        <button className={s.btn} onClick={resetFeedback}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
